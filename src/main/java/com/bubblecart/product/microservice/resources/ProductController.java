@@ -13,12 +13,6 @@ public class ProductController
    @Autowired
    private CategoryRepository categoryRepository;
 
-   @RequestMapping("/test")
-   public String hello()
-   {
-    return "Hello";
-   }
-
    @RequestMapping("/categories")
    public List<Category> getAllCategories() {
        return categoryRepository.findAll();

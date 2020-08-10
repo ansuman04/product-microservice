@@ -6,13 +6,13 @@
 	<artifactId>product-microservice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>product-microservice</name>
-	<packaging>jar</packaging>
-	<description>Product Microservice Usinr Spring Boot</description>
+ 	<packaging>jar</packaging>
+    <description>Product Microservice Using Spring Boot</description>
 
 	<properties>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>${maven.compiler.target}</maven.compiler.source>
-		<aws-java-sdk.version>1.11.750</aws-java-sdk.version>
+		<aws-java-sdk.version>1.11.327</aws-java-sdk.version>
 	</properties>
 
 	<parent>
@@ -26,12 +26,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<!-- Aws dependency. -->
-		<dependency>
-			<groupId>com.amazonaws</groupId>
-			<artifactId>aws-java-sdk</artifactId>
-			<version>${aws-java-sdk.version}</version>
-		</dependency>
+	  	
+	    <dependency>
+           <groupId>com.amazonaws</groupId>
+           <artifactId>aws-java-sdk-s3</artifactId>
+         </dependency>
 		
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>
@@ -44,8 +43,32 @@
 		    <artifactId>spring-boot-starter-test</artifactId>
 		    <scope>test</scope>
 		</dependency>
+		
+		<dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        
+        <dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-devtools</artifactId>
+		    <optional>true</optional>
+		</dependency>
         
 	</dependencies>
+	
+	<dependencyManagement>
+	  <dependencies>
+	    <dependency>
+	      <groupId>com.amazonaws</groupId>
+	      <artifactId>aws-java-sdk-bom</artifactId>
+	      <version>1.11.327</version>
+	      <type>pom</type>
+	      <scope>import</scope>
+	    </dependency>
+	  </dependencies>
+	</dependencyManagement>
 
 	<build>
 		<finalName>SpringbootS3tutorial</finalName>
@@ -55,6 +78,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+                  <mainClass>com.bubblecart.product.microservice.ProductMicroserviceApp</mainClass>
+                </configuration>
 			</plugin>
 		</plugins>
 	</build>
