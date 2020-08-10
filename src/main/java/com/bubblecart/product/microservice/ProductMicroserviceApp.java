@@ -8,12 +8,12 @@ import org.springframework.context.annotation.ComponentScan;
 
 @ComponentScan("com.bubblecart.product.microservice")
 @SpringBootApplication
-public class Application {
+public class ProductMicroserviceApp {
 
-    public static final Logger logger = LoggerFactory.getLogger(Application.class);
+    public static final Logger logger = LoggerFactory.getLogger(ProductMicroserviceApp.class);
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(ProductMicroserviceApp.class, args);
 	}
 
 }
