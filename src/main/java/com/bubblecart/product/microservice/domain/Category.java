@@ -20,7 +20,7 @@ public class Category {
     private String categoryDescription;
 
     @Valid
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id")
     private List<SubCategory> subCategoryList;
 

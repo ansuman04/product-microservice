@@ -1,9 +1,10 @@
-package com.bubblecart.product.microservice.resources;
+package com.bubblecart.product.microservice.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.Base64Utils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import java.util.Base64;
 
 import com.bubblecart.product.microservice.aws.s3.service.AWSS3Service;
 
@@ -32,6 +34,7 @@ public class AWSS3Ctrl {
 	public ResponseEntity<ByteArrayResource> downloadFile(@RequestParam(value= "fileName") final String keyName) {
 		final byte[] data = service.downloadFile(keyName);
 		final ByteArrayResource resource = new ByteArrayResource(data);
+
 		return ResponseEntity
 				.ok()
 				.contentLength(data.length)

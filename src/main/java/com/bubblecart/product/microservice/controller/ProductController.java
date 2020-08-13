@@ -1,4 +1,4 @@
-package com.bubblecart.product.microservice.resources;
+package com.bubblecart.product.microservice.controller;
 import com.bubblecart.product.microservice.domain.Category;
 import com.bubblecart.product.microservice.repo.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
