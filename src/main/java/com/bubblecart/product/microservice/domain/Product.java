@@ -17,7 +17,7 @@ public class Product {
 	private Integer product_id;
 	
 	@Column(name = "subcategory_id")
-	private Integer subcategory_id;
+	private Integer subcategoryId;
 	
 	@Column(name = "product_name")
 	private String product_name;
@@ -58,12 +58,12 @@ public class Product {
 		this.product_description = product_description;
 	}
 
-	public Integer getSubcategory_id() {
-		return subcategory_id;
+	public Integer getSubcategoryId() {
+		return subcategoryId;
 	}
 
-	public void setSubcategory_id(Integer subcategory_id) {
-		this.subcategory_id = subcategory_id;
+	public void setSubcategoryId(Integer subcategoryId) {
+		this.subcategoryId = subcategoryId;
 	}
 
 	public Integer getUnits_in_stock() {
@@ -92,7 +92,7 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [product_id=" + product_id + ", subcategory_id=" + subcategory_id + ", product_name="
+		return "Product [product_id=" + product_id + ", subcategoryId=" + subcategoryId + ", product_name="
 				+ product_name + ", product_description=" + product_description + ", units_in_stock=" + units_in_stock
 				+ ", image_name=" + image_name + ", unit_price=" + unit_price + "]";
 	}
