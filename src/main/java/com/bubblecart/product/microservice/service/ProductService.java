@@ -13,5 +13,7 @@ import com.bubblecart.product.microservice.response.dto.ProductDetails;
 public interface ProductService {
 	
 	List<ProductDetails> getAllProducts(int subCategoryId,Pageable pageable);
+	
+	ProductDetails getProductDetails(int productId);
 
 }

@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,6 +38,12 @@ public class ProductController
 	   
 	   List<ProductDetails> productDetailsList = productService.getAllProducts(request.getSubcategoryId(),pageable);       
 	   return new ResponseEntity<List<ProductDetails>>(productDetailsList, HttpStatus.OK);
+   }
+   
+   @RequestMapping(value = "/products/{id}",method = RequestMethod.GET,produces = "application/json")
+   public ResponseEntity<ProductDetails> getProductDetails(@PathVariable("id") int id){
+	   ProductDetails productDetails = productService.getProductDetails(id);
+	   return new ResponseEntity<ProductDetails>(productDetails, HttpStatus.OK);
    }
    
 }

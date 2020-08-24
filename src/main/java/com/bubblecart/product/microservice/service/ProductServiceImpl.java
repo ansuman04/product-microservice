@@ -31,19 +31,42 @@ public class ProductServiceImpl implements ProductService{
 		for(Product product:productList) {
 			ProductDetails productDetails = new ProductDetails();
 			
-			productDetails.setProduct_id(product.getProduct_id());
+			productDetails.setProduct_id(product.getProductId());
 			productDetails.setProduct_name(product.getProduct_name());
 			productDetails.setProduct_description(product.getProduct_description());
 			productDetails.setSubcategory_id(product.getSubcategoryId());
 			productDetails.setImage(AWSS3util.getImageData(product.getImage_name()));
 			productDetails.setUnits_in_stock(product.getUnits_in_stock());
 			productDetails.setUnit_price(product.getUnit_price());
+			productDetails.setProduct_sku(product.getProduct_sku());
+			productDetails.setExpiry_date(product.getExpiry_date());
 			
 			productDetailsList.add(productDetails);
 		}
 		
 		
 		return productDetailsList;
+	}
+
+	@Override
+	public ProductDetails getProductDetails(int productId) {
+
+        Product product = productRepo.findByproductId(productId);
+        
+        ProductDetails productDetails = new ProductDetails();
+        
+        if(product!=null) {
+        productDetails.setProduct_id(product.getProductId());
+		productDetails.setProduct_name(product.getProduct_name());
+		productDetails.setProduct_description(product.getProduct_description());
+		productDetails.setSubcategory_id(product.getSubcategoryId());
+		productDetails.setImage(AWSS3util.getImageData(product.getImage_name()));
+		productDetails.setUnits_in_stock(product.getUnits_in_stock());
+		productDetails.setUnit_price(product.getUnit_price());
+        }
+        
+        return productDetails;    
+        
 	}
 
 }

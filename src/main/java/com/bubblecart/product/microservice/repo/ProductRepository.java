@@ -14,6 +14,8 @@ public interface ProductRepository extends PagingAndSortingRepository<Product, I
 
 	
 	public List<Product> findBysubcategoryId(int subcategoryId,Pageable pageable);
+	
+	public Product findByproductId(int productId);
 
 }
 

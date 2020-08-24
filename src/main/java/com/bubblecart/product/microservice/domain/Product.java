@@ -1,5 +1,7 @@
 package com.bubblecart.product.microservice.domain;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +16,7 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	@Column(name = "product_id")
-	private Integer product_id;
+	private Integer productId;
 	
 	@Column(name = "subcategory_id")
 	private Integer subcategoryId;
@@ -33,14 +35,20 @@ public class Product {
 	
 	@Column(name = "unit_price")
 	private Integer unit_price;
+	
+	@Column(name = "product_sku")
+	private String product_sku;
+	
+	@Column(name = "expiry_date")
+	private Date expiry_date;
 
-	public Integer getProduct_id() {
-		return product_id;
+	public Integer getProductId() {
+		return productId;
 	}
 
-	public void setProduct_id(Integer product_id) {
-		this.product_id = product_id;
-	}	
+	public void setProductId(Integer productId) {
+		this.productId = productId;
+	}
 
 	public String getProduct_name() {
 		return product_name;
@@ -90,11 +98,28 @@ public class Product {
 		this.unit_price = unit_price;
 	}
 
+	public String getProduct_sku() {
+		return product_sku;
+	}
+
+	public void setProduct_sku(String product_sku) {
+		this.product_sku = product_sku;
+	}
+
+	public Date getExpiry_date() {
+		return expiry_date;
+	}
+
+	public void setExpiry_date(Date expiry_date) {
+		this.expiry_date = expiry_date;
+	}
+
 	@Override
 	public String toString() {
-		return "Product [product_id=" + product_id + ", subcategoryId=" + subcategoryId + ", product_name="
-				+ product_name + ", product_description=" + product_description + ", units_in_stock=" + units_in_stock
-				+ ", image_name=" + image_name + ", unit_price=" + unit_price + "]";
+		return "Product [productId=" + productId + ", subcategoryId=" + subcategoryId + ", product_name=" + product_name
+				+ ", product_description=" + product_description + ", units_in_stock=" + units_in_stock
+				+ ", image_name=" + image_name + ", unit_price=" + unit_price + ", product_sku=" + product_sku
+				+ ", expiry_date=" + expiry_date + "]";
 	}
 	
 
